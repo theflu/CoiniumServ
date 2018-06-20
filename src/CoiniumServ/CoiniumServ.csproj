@@ -140,6 +140,7 @@
     <Compile Include="Algorithms\Implementations\Sha256.cs" />
     <Compile Include="Algorithms\Implementations\Shavite3.cs" />
     <Compile Include="Algorithms\Implementations\Skein.cs" />
+    <Compile Include="Algorithms\Implementations\Sonoa.cs" />
     <Compile Include="Algorithms\Implementations\X11.cs" />
     <Compile Include="Algorithms\Implementations\X13.cs" />
     <Compile Include="Algorithms\Implementations\X14.cs" />

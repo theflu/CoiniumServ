@@ -1,0 +1,11 @@
+{
+    "name": "SONO",
+    "symbol": "SONO",
+    "algorithm": "sonoa",
+	"site": "https://projectsono.io/",
+    "blockExplorer": {
+        "block": "https://altexplorer.co/coin/sonov2/explorer/block/",
+        "tx": "https://altexplorer.co/coin/sonov2/explorer/tx/",
+        "address": "https://altexplorer.co/coin/sonov2/explorer/address/"
+    }
+}
