@@ -118,11 +118,11 @@ namespace CoiniumServ.Jobs.Manager
             {
                 var blockTemplate = _daemonClient.GetBlockTemplate(_poolConfig.Coin.Options.BlockTemplateModeRequired);
 
-                if (blockTemplate.Height == _jobTracker.Current.Height) // if network reports the same block-height with our current job.
-                    return; // just return.
-                
-                _logger.Verbose("A new block {0} emerged in network, rebroadcasting new work", blockTemplate.Height);
-                CreateAndBroadcastNewJob(false); // broadcast a new job.
+                if (blockTemplate.Height != _jobTracker.Current.Height) // if network reports the different block-height with our current job.
+				{
+                    _logger.Verbose("A new block {0} emerged in network, rebroadcasting new work", blockTemplate.Height);
+                    CreateAndBroadcastNewJob(false); // broadcast a new job.
+				}
             }
             catch (RpcException) { } // just skip any exceptions caused by the block-pooler queries.
 
