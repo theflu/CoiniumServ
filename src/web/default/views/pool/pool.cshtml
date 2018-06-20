@@ -5,6 +5,8 @@
 
 @{ Layout = "layout/main.cshtml"; }
 
+@{int CurrentBlock = Model.Pool.NetworkInfo.Round - 1;}
+
 @{float Fee = 0;}
 @foreach (var fees in Model.Pool.Config.Rewards)
 {
@@ -59,7 +61,7 @@
                     <div class="list-group-item" title="Block chain height">
                         <div class="row">
                             <div class="col-xs-6"><i class="fa fa-bars"></i> Height</div>
-                            <div class="col-xs-6 text-right">@Model.Pool.NetworkInfo.Round</div>
+                            <div class="col-xs-6 text-right">@CurrentBlock</div>
                         </div>
                     </div>
                     <div class="list-group-item" title="Version of the coin">
