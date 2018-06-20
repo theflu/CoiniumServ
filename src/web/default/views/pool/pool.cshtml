@@ -5,6 +5,12 @@
 
 @{ Layout = "layout/main.cshtml"; }
 
+@{float Fee = 0;}
+@foreach (var fees in Model.Pool.Config.Rewards)
+{
+	@{Fee += fees.Value;}
+}
+
 @if (!Model.Pool.NetworkInfo.Healthy)
 {
     <div class="row">
@@ -119,6 +125,14 @@
                                     var lastPayment = Model.Pool.BlockRepository.LatestPaid.Count > 0 ? Model.Pool.BlockRepository.LatestPaid.First().CreatedAt.ToString("yyyy-MM-ddTHH:mm:ssZ") : "N/A";
                                     <time class="timeago" datetime="@lastPayment">@lastPayment</time>
                                 }
+                            </div>
+                        </div>
+                    </div>
+					<div class="list-group-item" title="Mining pool fee">
+                        <div class="row">
+                            <div class="col-xs-6"><i class="fa fa-bank"></i> Fee</div>
+                            <div class="col-xs-6 text-right">
+                                @Fee%
                             </div>
                         </div>
                     </div>
