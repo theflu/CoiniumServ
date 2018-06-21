@@ -109,6 +109,9 @@ namespace CoiniumServ.Daemon.Responses
 
         public List<string> Mutable { get; set; }
 		
+		/// <summary>
+        /// <see cref="Masternode"/>
+        /// </summary>
         public Masternode Masternode { get; set; }
 
         public string NonceRange { get; set; }
@@ -122,5 +125,11 @@ namespace CoiniumServ.Daemon.Responses
     public class CoinBaseAux
     {
         public string Flags { get; set; }
+    }
+	
+	public class Masternode
+    {
+        public string Payee { get; set; }
+        public string Payee_amount { get; set; }
     }
 }
