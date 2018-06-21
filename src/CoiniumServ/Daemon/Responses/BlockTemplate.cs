@@ -109,7 +109,7 @@ namespace CoiniumServ.Daemon.Responses
 
         public List<string> Mutable { get; set; }
 		
-        public List<string> Masternode { get; set; }
+        public Masternode Masternode { get; set; }
 
         public string NonceRange { get; set; }
     }
