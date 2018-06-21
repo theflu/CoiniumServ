@@ -114,6 +114,10 @@ namespace CoiniumServ.Daemon.Responses
         /// </summary>
         public Masternode Masternode { get; set; }
 
+        public bool Masternode_payments_started { get; set; }
+		
+        public bool Masternode_payments_enforced { get; set; }
+		
         public string NonceRange { get; set; }
     }
 
