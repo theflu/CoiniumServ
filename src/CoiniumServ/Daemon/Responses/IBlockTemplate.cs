@@ -63,6 +63,8 @@ namespace CoiniumServ.Daemon.Responses
         UInt32 MinTime { get; set; }
 
         List<string> Mutable { get; set; }
+		
+        List<string> Masternodes { get; set; }
 
         string NonceRange { get; set; }
     }
