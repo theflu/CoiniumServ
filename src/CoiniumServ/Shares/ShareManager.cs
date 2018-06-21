@@ -180,15 +180,23 @@ namespace CoiniumServ.Shares
             try
             {
                 if (_poolConfig.Coin.Options.SubmitBlockSupported) // see if submitblock() is available.
+				{
+					_logger.Debug("Submitting block with SubmitBlock [{0:l}]", share.BlockHash.ToHexString());
                     _daemonClient.SubmitBlock(share.BlockHex.ToHexString()); // submit the block.
+				}
                 else
+				{
+					_logger.Debug("Submitting block with GetBlockTemplate [{0:l}]", share.BlockHash.ToHexString());
                     _daemonClient.GetBlockTemplate(share.BlockHex.ToHexString()); // use getblocktemplate() if submitblock() is not supported.
+				}
 
+				_logger.Debug("Trying to get submitted block [{0:1}]", share.BlockHash.ToHexString());
                 var block = _daemonClient.GetBlock(share.BlockHash.ToHexString()); // query the block.
 
                 if (block == null) // make sure the block exists
                     return false;
 
+				_logger.Debug("Got submitted block [{0:1}]", share.BlockHash.ToHexString());
                 if (block.Confirmations == -1) // make sure the block is accepted.
                 {
                     _logger.Debug("Submitted block [{0}] is orphaned; [{1:l}]", block.Height, block.Hash);
