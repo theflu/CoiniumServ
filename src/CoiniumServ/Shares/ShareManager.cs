@@ -190,9 +190,9 @@ namespace CoiniumServ.Shares
                     _daemonClient.GetBlockTemplate(share.BlockHex.ToHexString()); // use getblocktemplate() if submitblock() is not supported.
 				}
 
-				_logger.Debug("Trying to get submitted block [{0:1}]", share.BlockHash);
-                var block = _daemonClient.GetBlock(share.BlockHash); // query the block.
-				_logger.Debug("Got submitted block [{0:1}] Confirmations [{0:1}]", share.BlockHash.ToHexString(), );
+				_logger.Debug("Trying to get submitted block [{0:1}]", share.BlockHash.ToString());
+                var block = _daemonClient.GetBlock(share.BlockHash.ToString()); // query the block.
+				_logger.Debug("Got submitted block [{0:1}] Confirmations [{0:1}]", share.BlockHash.ToString(), );
 				
                 if (block == null) // make sure the block exists
                     return false;
